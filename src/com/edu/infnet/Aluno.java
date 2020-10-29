@@ -3,25 +3,37 @@ package com.edu.infnet;
 public class Aluno {
 
 
-	private int cpf;
-	private float[] notas = new float[5];
+	private String cpf;
+	private Float[] notas = new Float[5];
 	private String nome;
 	
-	public Aluno (String nome, int cpf) {
+	public Aluno (String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
 	}
 	
-	public int getCpf() {
+	public void registrarNota(Float nota) {
+		for(int i=0; i<4; i++) {
+			if (notas[i]== null) {
+				this.notas[i]=nota;
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public float[] getNotas() {
+	public Float[] getNotas() {
 		return notas;
 	}
-	public void setNotas(float[] notas) {
+	public void setNotas(Float[] notas) {
 		this.notas = notas;
 	}
 	public String getNome() {
