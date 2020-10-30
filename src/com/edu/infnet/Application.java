@@ -14,9 +14,9 @@ public class Application {
 		while (executando) {
 			Scanner sc = new Scanner(System.in);
 
-			System.out.println("1 - Registrar as notas do aluno");
-			System.out.println("2 - Consultar boletim do aluno");
-			System.out.println("3 - Consultar notas da turma");
+			System.out.println("1 - Registrar as notas do aluno.");
+			System.out.println("2 - Consultar boletim do aluno.");
+			System.out.println("3 - Consultar notas da turma.");
 			System.out.println("4 - Sair");
 
 			int opcaoSelecionada = sc.nextInt();
@@ -25,9 +25,8 @@ public class Application {
 			case (1):
 				// cadastrar aluno
 				System.out.println("Informe um nome");
-				System.out.println("Informe uma matricula");
-
 				String nome = sc.next();
+				System.out.println("Informe uma matricula");
 				String cpf = sc.next();
 				Aluno novoAluno = new Aluno(nome, cpf);
 
@@ -39,27 +38,25 @@ public class Application {
 				Float nota2 = sc.nextFloat();
 				novoAluno.registrarNota(nota2);
 
-				System.out.println("nota 3");
-				Float nota3 = sc.nextFloat();
-				novoAluno.registrarNota(nota3);
-
-				System.out.println("nota 4");
-				Float nota4 = sc.nextFloat();
-				novoAluno.registrarNota(nota4);
-
-				System.out.println("nota 5");
-				Float nota5 = sc.nextFloat();
-				novoAluno.registrarNota(nota5);
-
 				classe2b.add(novoAluno);
-				
 
 				break;
 
 			case (2):
+				System.out.println("Digite o CPF do aluno");
+				String pesquisaCpf = sc.next();
+				for (Aluno aluno : classe2b) {
+					if (aluno.getCpf().equals(pesquisaCpf)) {
+						aluno.calcularMedia();
+						
+					}
+				}
 				break;
 
 			case (3):
+				for (Aluno aluno : classe2b) {
+					aluno.calcularMedia();
+				}
 				break;
 
 			case (4):
@@ -69,11 +66,11 @@ public class Application {
 			}
 
 		}
-		for(Aluno aluno:classe2b) {
+		for (Aluno aluno : classe2b) {
 			System.out.println(aluno.getNome());
-			
-			Float notas [] = aluno.getNotas();
-			for(int i = 0; i<4; i++) {
+
+			Float notas[] = aluno.getNotas();
+			for (int i = 0; i < 2; i++) {
 				System.out.println(notas[i]);
 			}
 		}
